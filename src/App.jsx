@@ -1,12 +1,31 @@
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BookingProvider } from "./context/BookingContext";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+
+function Layout({ children }) {
   return (
-    <div className="min-h-screen relative bg-black">
-      {/* Attribution */}
-      <div className="fixed bottom-4 right-4 text-xs text-gray-400 ">
-        — Pritam Paul —
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-1">{children}</main>
+      <Footer />
     </div>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <BookingProvider>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route
+              path="/"
+              element={<div className="p-8 text-center">Home coming soon</div>}
+            />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </BookingProvider>
+  );
+}
