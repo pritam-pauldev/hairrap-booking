@@ -1,3 +1,5 @@
+import SocialLinks from "../ui/SocialLinks";
+
 const FOOTER_COLS = [
   {
     title: "Product",
@@ -181,31 +183,8 @@ export default function Footer() {
         </div>
 
         {/* Social icons + language/currency row */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            {SOCIAL_LINKS.map(({ label, color, icon }) => (
-              <a
-                key={label}
-                href="#"
-                aria-label={label}
-                className={`w-8 h-8 rounded-full flex items-center justify-center ${color} text-white hover:opacity-80 transition-opacity`}
-              >
-                {icon}
-              </a>
-            ))}
-          </div>
+        <SocialLinks />
 
-          <div className="flex items-center gap-2">
-            <select className="text-xs border border-zinc-300 dark:border-zinc-700 rounded px-2 py-1.5 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 focus:outline-none focus:ring-1 focus:ring-pink-400">
-              <option>🇺🇸 English</option>
-              <option>🇮🇳 Hindi</option>
-            </select>
-            <select className="text-xs border border-zinc-300 dark:border-zinc-700 rounded px-2 py-1.5 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 focus:outline-none focus:ring-1 focus:ring-pink-400">
-              <option>USD</option>
-              <option>INR</option>
-            </select>
-          </div>
-        </div>
 
         {/* Bottom bar */}
         <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">

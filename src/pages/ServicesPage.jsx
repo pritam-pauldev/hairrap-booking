@@ -4,7 +4,7 @@ import ServiceCard from '../components/services/ServiceCard';
 import ServiceFilters from '../components/services/ServiceFilters';
 import { SERVICES } from '../services/mockData';
 import clsx from 'clsx';
-import { ServicesHead } from '../assets';
+import { ServicesHeroBanner } from "../assets";
 
 const SORT_OPTIONS = ['Price Low to High', 'Price High to Low', 'Rating', 'Most Popular'];
 const PAGE_SIZE = 9;
@@ -48,10 +48,9 @@ export default function ServicesPage() {
       <div
         className="relative h-40 bg-cover bg-center flex items-center justify-center"
         style={{
-          backgroundImage: `url(${ServicesHead})`,
+          backgroundImage: `url(${ServicesHeroBanner})`,
         }}
-      >
-      </div>
+      ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex gap-8">
