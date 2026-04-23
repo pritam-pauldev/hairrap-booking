@@ -5,3 +5,4 @@ export { default as ChatIcon } from "./icons/chatIcon.svg";
 
 // Images
 export { default as ProfilePicture } from "./images/profilePicture.svg";
+export { default as ServicesHead } from "./images/servicesHead.svg";

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BookingProvider } from "./context/BookingContext";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import ServicesPage from "./pages/ServicesPage";
 
 function Layout({ children }) {
   return (
@@ -23,6 +24,7 @@ export default function App() {
               path="/"
               element={<div className="p-8 text-center">Home coming soon</div>}
             />
+            <Route path="/services" element={<ServicesPage />} />
           </Routes>
         </Layout>
       </BrowserRouter>

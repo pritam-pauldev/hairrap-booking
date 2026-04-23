@@ -28,10 +28,9 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-pink-700 text-white font-medium text-sm
-    hover:bg-pink-800 active:scale-[0.98] transition-all duration-150
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md bg-[#EBECED] text-[#242B3A] font-medium text-sm
+    hover:bg-[#B56584] hover:text-white active:scale-[0.98] transition-all duration-150
     disabled:opacity-50 disabled:cursor-not-allowed;
-    box-shadow: 0 4px 20px -2px rgb(232 62 130 / 0.35);
   }
 
   .btn-primary:disabled { box-shadow: none; }
@@ -56,7 +55,7 @@
   }
 
   .card {
-    @apply bg-white rounded-2xl border border-zinc-100;
+    @apply bg-white rounded-lg border border-zinc-100;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.06);
     transition: box-shadow 0.2s, transform 0.2s;
   }
@@ -71,7 +70,7 @@
   }
 
   .input-field {
-    @apply w-full px-4 py-3 rounded-xl border border-zinc-200 bg-white text-zinc-900 text-sm
+    @apply w-full px-4 py-3 rounded-md border border-zinc-200 bg-white text-zinc-900 text-sm
     placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:border-pink-500
     transition-all duration-150;
     --tw-ring-color: rgb(236 72 153 / 0.3);
