@@ -119,7 +119,7 @@ export default function Footer() {
 
           {/* Newsletter column */}
           <div className=" w-[328px]">
-            <div className="p-[20px] bg-[#FBFBFB] rounded-lg">
+            <div className="p-[20px] bg-[#FBFBFB] dark:bg-zinc-800 rounded-lg">
               <h4 className="font-bold text-md text-[#242B3A] dark:text-white mb-4">
                 SignUp For Subscription
               </h4>

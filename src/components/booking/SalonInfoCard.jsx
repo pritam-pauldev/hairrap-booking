@@ -43,13 +43,13 @@ export default function SalonInfoCard({ service }) {
 
           {/* Salon name */}
           <div className="flex items-center gap-2 mb-1">
-            <h5 className="font-display text-lg font-bold text-zinc-900 dark:text-white">
+            <h5 className="font-archivo text-lg font-bold text-zinc-900 dark:text-white">
               {service.salon}
             </h5>
           </div>
 
           {/* Tagline */}
-          <p className="text-xs text-[#656B76] dark:text-zinc-400  mb-2">
+          <p className="font-archivo text-xs text-[#656B76] dark:text-zinc-400  mb-2">
             We connect top talents with top companies
           </p>
 
@@ -71,11 +71,11 @@ export default function SalonInfoCard({ service }) {
           <div>
             <div className="flex items-center gap-1.5 mb-0.5">
               <Mail className="w-3.5 h-3.5 text-zinc-400" />
-              <span className="text-xs font-bold text-[#242B3A] dark:text-zinc-400">
+              <span className="text-xs font-archivo font-bold text-[#242B3A] dark:text-zinc-400">
                 Email
               </span>
             </div>
-            <p className="text-xs text-zinc-700 dark:text-zinc-300">
+            <p className="text-xs font-archivo text-zinc-700 dark:text-zinc-300">
               {service.email ?? "Glamxxxxxx@example.com"}
             </p>
           </div>
@@ -83,13 +83,13 @@ export default function SalonInfoCard({ service }) {
           <div className="mr-[60px]">
             <div className="flex items-center gap-1.5 mb-0.5">
               <Globe className="w-3.5 h-3.5 text-zinc-400" />
-              <span className="text-xs font-bold text-[#242B3A] dark:text-zinc-400">
+              <span className="font-archivo text-xs font-bold text-[#242B3A] dark:text-zinc-400">
                 Language Known
               </span>
             </div>
-            <p className="text-xs text-zinc-700 dark:text-zinc-300">
+            <p className="font-archivo text-xs text-zinc-700 dark:text-zinc-300">
               English, Arabic, French{" "}
-              <span className="text-pink-700 dark:text-pink-400 font-medium">
+              <span className="font-archivo text-pink-700 dark:text-pink-400 font-medium">
                 +4 More
               </span>
             </p>
@@ -98,11 +98,11 @@ export default function SalonInfoCard({ service }) {
           <div>
             <div className="flex items-center gap-1.5 mb-0.5">
               <Phone className="w-3.5 h-3.5 text-zinc-400" />
-              <span className="text-xs font-bold text-[#242B3A] dark:text-zinc-400">
+              <span className="font-archivo text-xs font-bold text-[#242B3A] dark:text-zinc-400">
                 Phone Number
               </span>
             </div>
-            <p className="text-xs text-zinc-700 dark:text-zinc-300">
+            <p className="text-xs font-archivo text-zinc-700 dark:text-zinc-300">
               {service.phone ?? "+1 888 8XX XXXX"}
             </p>
           </div>
@@ -110,11 +110,11 @@ export default function SalonInfoCard({ service }) {
           <div>
             <div className="flex items-center gap-1.5 mb-0.5">
               <MapPin className="w-3.5 h-3.5 text-zinc-400" />
-              <span className="text-xs font-bold text-[#242B3A] dark:text-zinc-400">
+              <span className="text-xs font-archivo font-bold text-[#242B3A] dark:text-zinc-400">
                 Address
               </span>
             </div>
-            <p className="text-xs text-zinc-700 dark:text-zinc-300">
+            <p className="text-xs font-archivo text-zinc-700 dark:text-zinc-300">
               {service.location}
             </p>
           </div>
@@ -122,13 +122,13 @@ export default function SalonInfoCard({ service }) {
 
         {/* Right — View Salon button + Social profiles */}
         <div className="flex flex-col items-start gap-3 shrink-0">
-          <button className="btn-primary text-xs px-5 py-2.5 flex items-center gap-2 w-full">
+          <button className="btn-primary font-archivo text-xs px-5 py-2.5 flex items-center gap-2 w-full">
             <Building2 className="w-3.5 h-3.5" />
             View Salon
           </button>
 
           <div className="flex flex-col items-start gap-2">
-            <p className="text-xs font-bold text-[#242B3A] dark:text-zinc-400">
+            <p className="text-xs font-archivo font-bold text-[#242B3A] dark:text-zinc-400">
               Social Profiles
             </p>
             <SocialLinks />

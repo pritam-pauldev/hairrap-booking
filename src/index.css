@@ -15,8 +15,7 @@
   }
 
   body {
-    @apply bg-zinc-50 text-zinc-900 antialiased;
-    font-family: "DM Sans", sans-serif;
+    @apply font-inter font-medium bg-zinc-50 text-zinc-900 antialiased;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
@@ -86,7 +85,7 @@
 
   .card-hover:hover {
     box-shadow: 0 8px 20px -5px rgb(0 0 0 / 0.12);
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
   }
 
   .input-field {

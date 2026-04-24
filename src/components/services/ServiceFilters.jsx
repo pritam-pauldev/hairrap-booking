@@ -39,7 +39,7 @@ export default function ServiceFilters({ filters, onChange, onReset }) {
             placeholder="What are you looking for?"
             value={filters.keyword}
             onChange={(e) => onChange({ keyword: e.target.value })}
-            className="input-field py-2.5 text-sm"
+            className="input-field py-2.5 text-sm font-inter font-regular"
           />
         </div>
       </div>

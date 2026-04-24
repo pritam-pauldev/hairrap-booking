@@ -118,9 +118,7 @@ export default function BookingPage() {
       >
         {/* <div className="absolute inset-0 bg-zinc-900/60" /> */}
         <div className="relative text-center">
-          <h1 className="font-display text-3xl font-bold text-white">
-            Booking
-          </h1>
+          <h1 className="font-inter text-3xl font-bold text-white">Booking</h1>
           <p className="text-zinc-300 text-sm mt-1">
             Home › Services › Booking
           </p>
@@ -142,20 +140,20 @@ export default function BookingPage() {
 
         {/* Booking form */}
         <div>
-          <h1 className="mb-4 font-display text-3xl font-bold text-zinc-900 dark:text-white mb-2">
+          <h1 className="mb-4 font-archivo text-4xl font-bold text-zinc-900 dark:text-white">
             Book an Appointment
           </h1>
-          <p className="text-[#434343] dark:text-zinc-400 text-sm mb-14">
+          <p className="text-[#434343] font-inter dark:text-zinc-400 text-sm mb-14">
             Ready to take the first step toward your dream property? Fill out
             the form below, and our real estate wizards will work their magic to
             find your perfect match. Don't wait; let's embark on this exciting
             journey together.
           </p>
         </div>
-        <div className="border-[1px] border-[#434343] rounded-lg bg-white p-10 sm:p-8">
+        <div className="border-[1px] border-[#434343] dark:bg-zinc-900 rounded-lg bg-white p-10 sm:p-8">
           {/* Personal info row */}
-          <div className='p-8'>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
+          <div className="p-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
               {[
                 {
                   key: "firstName",
@@ -179,7 +177,7 @@ export default function BookingPage() {
                 },
               ].map(({ key, label, placeholder }) => (
                 <div key={key}>
-                  <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
+                  <label className="block text-s font-inter font-bold text-[#000000] dark:text-zinc-300 mb-1.5">
                     {label}
                   </label>
                   <input
@@ -191,7 +189,7 @@ export default function BookingPage() {
                       setErrors((er) => ({ ...er, [key]: "" }));
                     }}
                     className={clsx(
-                      "input-field bg-[#EAEAEA]",
+                      "input-field bg-[#EAEAEA] font-inter",
                       errors[key] &&
                         "border-red-400 focus:border-red-400 focus:ring-red-400/30",
                     )}
@@ -204,8 +202,8 @@ export default function BookingPage() {
             </div>
 
             {/* Choose whom */}
-            <div className="mb-5">
-              <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
+            <div className="mb-12">
+              <label className="block text-s font-inter font-bold text-[#000000] dark:text-zinc-300 mb-1.5">
                 Choose Whom
               </label>
               <select
@@ -213,7 +211,7 @@ export default function BookingPage() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, gender: e.target.value }))
                 }
-                className="input-field bg-[#EAEAEA]"
+                className="input-field bg-[#EAEAEA] font-inter text-[#898989]"
               >
                 <option value="">Select gender</option>
                 <option>Male</option>
@@ -224,94 +222,93 @@ export default function BookingPage() {
             </div>
 
             {/* Stylist / Gender / Service / Category */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
-              <div>
-                <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                  Choose Stylist
-                </label>
-                <select
-                  value={form.stylist}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, stylist: e.target.value }))
-                  }
-                  className="input-field bg-[#EAEAEA]"
-                >
-                  <option value="">Select Stylist</option>
-                  {STYLISTS.map((s) => (
-                    <option key={s.id}>{s.name}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                  Gender
-                </label>
-                <select
-                  value={form.gender}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, gender: e.target.value }))
-                  }
-                  className="input-field bg-[#EAEAEA]"
-                >
-                  <option value="">Select Gender</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                  Services Type
-                </label>
-                <select
-                  className="input-field bg-[#EAEAEA]"
-                  value={form.serviceType}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, serviceType: e.target.value }))
-                  }
-                >
-                  <option value="">{service.name}</option>
-                  <option>Men's Haircut</option>
-                  <option>Women's Haircut</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
-                  Service Category
-                </label>
-                <select className="input-field bg-[#EAEAEA]">
-                  <option>{service.category}</option>
-                </select>
-              </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+              {[
+                {
+                  key: "stylist",
+                  label: "Choose Stylist",
+                  options: [
+                    { value: "", label: "Select Stylist" },
+                    ...STYLISTS.map((s) => ({ value: s.id, label: s.name })),
+                  ],
+                },
+                {
+                  key: "gender",
+                  label: "Gender",
+                  options: [
+                    { value: "", label: "Select Gender" },
+                    { value: "Male", label: "Male" },
+                    { value: "Female", label: "Female" },
+                  ],
+                },
+                {
+                  key: "serviceType",
+                  label: "Service Type",
+                  options: [
+                    { value: "", label: service.name },
+                    { value: "mens-haircut", label: "Men's Haircut" },
+                    { value: "womens-haircut", label: "Women's Haircut" },
+                  ],
+                },
+                {
+                  key: "serviceCategory",
+                  label: "Service Category",
+                  options: [
+                    { value: service.category, label: service.category },
+                  ],
+                },
+              ].map(({ key, label, options }) => (
+                <div key={key}>
+                  <label className="block text-s font-inter font-bold text-[#000000] dark:text-zinc-300 mb-1.5">
+                    {label}
+                  </label>
+                  <select
+                    value={form[key]}
+                    onChange={(e) => {
+                      setForm((f) => ({ ...f, [key]: e.target.value }));
+                      setErrors((er) => ({ ...er, [key]: "" }));
+                    }}
+                    className={clsx(
+                      "input-field bg-[#EAEAEA] font-inter text-[#898989]",
+                      errors[key] &&
+                        "border-red-400 focus:border-red-400 focus:ring-red-400/30",
+                    )}
+                  >
+                    {options.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                  {errors[key] && (
+                    <p className="text-xs text-red-500 mt-1">{errors[key]}</p>
+                  )}
+                </div>
+              ))}
             </div>
 
             {/* Date & Time */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
               <div>
-                <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                <label className="block text-s font-inter font-bold text-[#000000] dark:text-zinc-300 mb-1.5">
                   Select Date
                 </label>
-                <div className="flex flex-wrap gap-2">
-                  {dates.slice(0, 7).map((d) => {
-                    const label = format(d, "EEE d");
-                    const val = format(d, "EEE d MMM");
-                    return (
-                      <button
-                        key={val}
-                        onClick={() => {
-                          setForm((f) => ({ ...f, date: val }));
-                          setErrors((e) => ({ ...e, date: "" }));
-                        }}
-                        className={clsx(
-                          "px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors",
-                          form.date === val
-                            ? "bg-pink-700 text-white border-pink-700 shadow-lg"
-                            : "border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:border-pink-400 hover:text-pink-700",
-                        )}
-                      >
-                        {label}
-                      </button>
-                    );
-                  })}
+                <div className="relative">
+                  <input
+                    type="date"
+                    value={form.date}
+                    min={format(dates[0], "yyyy-MM-dd")}
+                    max={format(dates[6], "yyyy-MM-dd")}
+                    onChange={(e) => {
+                      setForm((f) => ({ ...f, date: e.target.value }));
+                      setErrors((er) => ({ ...er, date: "" }));
+                    }}
+                    className={clsx(
+                      "input-field bg-[#EAEAEA] font-inter",
+                      errors.date &&
+                        "border-red-400 focus:border-red-400 focus:ring-red-400/30",
+                    )}
+                  />
                 </div>
                 {errors.date && (
                   <p className="text-xs text-red-500 mt-1">{errors.date}</p>
@@ -319,37 +316,32 @@ export default function BookingPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-                  Select Time{" "}
-                  <span className="text-zinc-400 ml-1 font-normal">
-                    (duration: {service.duration} min)
-                  </span>
+                <label className="block text-s font-inter font-bold text-[#000000] dark:text-zinc-300 mb-1.5">
+                  Time
                 </label>
-                <div className="flex flex-wrap gap-1.5">
-                  {TIME_SLOTS.map((slot) => {
-                    const isBooked = BOOKED_SLOTS.includes(slot);
-                    return (
-                      <button
-                        key={slot}
-                        disabled={isBooked}
-                        onClick={() => {
-                          setForm((f) => ({ ...f, time: slot }));
-                          setErrors((e) => ({ ...e, time: "" }));
-                        }}
-                        className={clsx(
-                          "px-2.5 py-1 rounded-lg text-xs font-medium border transition-colors",
-                          isBooked
-                            ? "border-zinc-100 dark:border-zinc-800 text-zinc-300 dark:text-zinc-700 cursor-not-allowed bg-zinc-50 dark:bg-zinc-900 line-through"
-                            : form.time === slot
-                              ? "bg-pink-700 text-white border-pink-700 shadow-lg"
-                              : "border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:border-pink-400",
-                        )}
-                      >
-                        {slot}
-                      </button>
-                    );
-                  })}
-                </div>
+                <select
+                  value={form.time}
+                  onChange={(e) => {
+                    setForm((f) => ({ ...f, time: e.target.value }));
+                    setErrors((er) => ({ ...er, time: "" }));
+                  }}
+                  className={clsx(
+                    "input-field bg-[#EAEAEA] font-inter",
+                    errors.time &&
+                      "border-red-400 focus:border-red-400 focus:ring-red-400/30",
+                  )}
+                >
+                  <option value="">Select Time</option>
+                  {TIME_SLOTS.map((slot) => (
+                    <option
+                      key={slot}
+                      value={slot}
+                      disabled={BOOKED_SLOTS.includes(slot)}
+                    >
+                      {slot} {BOOKED_SLOTS.includes(slot) ? "(Booked)" : ""}
+                    </option>
+                  ))}
+                </select>
                 {errors.time && (
                   <p className="text-xs text-red-500 mt-1">{errors.time}</p>
                 )}
@@ -358,7 +350,7 @@ export default function BookingPage() {
 
             {/* Message */}
             <div className="mb-6">
-              <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">
+              <label className="block text-s font-inter font-bold text-[#000000] dark:text-zinc-300 mb-1.5">
                 Message
               </label>
               <textarea
@@ -368,20 +360,20 @@ export default function BookingPage() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, message: e.target.value }))
                 }
-                className="input-field bg-[#EAEAEA] resize-none"
+                className="input-field bg-[#EAEAEA] resize-none font-inter"
               />
             </div>
 
             {/* Total & Submit */}
             <div className="pt-5 border-t border-zinc-100 dark:border-zinc-800">
               {/* Row 1 — Total price + discount badge */}
+              <p className="text-xs font-archivo text-zinc-400 dark:text-zinc-500 mb-1">
+                Total
+              </p>
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <p className="text-xs text-zinc-400 dark:text-zinc-500 mb-1">
-                    Total
-                  </p>
                   <div className="flex items-baseline gap-2">
-                    <span className="font-display text-2xl font-bold text-zinc-900 dark:text-white">
+                    <span className="font-archivo text-3xl font-bold text-[#242B3A] dark:text-white">
                       ₹{service.price}
                     </span>
                     <span className="text-sm text-zinc-400 line-through">
@@ -411,11 +403,11 @@ export default function BookingPage() {
                   />
                   <span className="text-xs text-zinc-600 dark:text-zinc-400">
                     I agree with{" "}
-                    <a href="#" className="text-pink-700 hover:underline">
+                    <a href="#" className="hover:text-pink-700 underline">
                       Terms of Use
                     </a>{" "}
                     and{" "}
-                    <a href="#" className="text-pink-700 hover:underline">
+                    <a href="#" className="hover:text-pink-700 underline">
                       Privacy Policy
                     </a>
                   </span>

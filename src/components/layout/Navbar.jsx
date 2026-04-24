@@ -39,7 +39,7 @@ export default function Navbar() {
                   clsx(
                     "flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-medium transition-colors duration-150",
                     isActive
-                      ? "bg-pink-50 text-pink-800 dark:bg-pink-950 dark:text-pink-400"
+                      ? "bg-zinc-100 hover:text-zinc-900 dark:bg-pink-950 dark:text-pink-400"
                       : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800",
                   )
                 }

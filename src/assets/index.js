@@ -7,3 +7,4 @@ export { default as ChatIcon } from "./icons/chatIcon.svg";
 export { default as ProfilePicture } from "./images/profilePicture.svg";
 export { default as ServicesHeroBanner } from "./images/servicesHeroBanner.svg";
 export { default as BookingHeroBanner } from "./images/bookingHeroBanner.svg";
+export { default as DashboardHeroBanner } from "./images/dashboardHeroBanner.svg";

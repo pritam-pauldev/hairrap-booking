@@ -5,6 +5,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        archivo: ["Archivo", "sans-serif"],
         display: ['"Playfair Display"', "serif"],
         sans: ['"DM Sans"', "sans-serif"],
       },

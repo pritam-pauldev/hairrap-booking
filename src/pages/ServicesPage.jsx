@@ -53,10 +53,10 @@ export default function ServicesPage() {
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex gap-8">
+        <div className="flex gap-8 items-start">
           {/* Sidebar */}
-          <aside className="hidden lg:block w-64 shrink-0">
-            <div className="card p-5 sticky top-24">
+          <aside className="hidden lg:block w-64 shrink-0 self-start sticky top-24">
+            <div className="card p-5 ">
               <ServiceFilters
                 filters={filters}
                 onChange={handleFilterChange}
