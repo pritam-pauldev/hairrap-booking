@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BookingProvider } from "./context/BookingContext";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import ServicesPage from "./pages/ServicesPage";
-import BookingPage from "./pages/BookingPage";
-import DashboardPage from "./pages/DashboardPage";
+import ServicesPage from "./pages/services/ServicesPage";
+import BookingPage from "./pages/booking/BookingPage";
+import DashboardPage from "./pages/dashboard/DashboardPage";
 import AIChatWidget from "./components/chat/AIChatWidget";
 
 function Layout({ children }) {

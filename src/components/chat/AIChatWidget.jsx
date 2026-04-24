@@ -1,148 +1,22 @@
+// src/components/chat/AIChatWidget.jsx
+
 import { useState, useRef, useEffect } from "react";
 import {
   X,
   Plus,
   Settings,
-  User,
   Mic,
   BarChart2,
   Send,
-  Scissors,
   Sparkles,
-  Calendar,
-  ShoppingBag,
-  BookOpen,
-  MessageCircle,
 } from "lucide-react";
 import { useBooking } from "../../context/BookingContext";
 import { sendMessage } from "../../services/aiServices";
 import clsx from "clsx";
-import { LogoIcon } from "../../assets";
-import { ProfilePicture } from "../../assets";
-
-const QUICK_TOPICS = [
-  {
-    icon: Calendar,
-    label: "Book an Appointment",
-    sub: "Haircut, styling, spa & more",
-    prompt: "I want to book an appointment",
-  },
-  {
-    icon: Scissors,
-    label: "Explore Services",
-    sub: "Prices, duration & details",
-    prompt: "Show me available services",
-  },
-  {
-    icon: ShoppingBag,
-    label: "Salon Products",
-    sub: "Hair care & styling products",
-    prompt: "Tell me about salon products",
-  },
-  {
-    icon: BookOpen,
-    label: "My Bookings",
-    sub: "View, reschedule or cancel",
-    prompt: "How do I view my bookings?",
-  },
-  {
-    icon: MessageCircle,
-    label: "Talk to Expert",
-    sub: "Hair & skin consultation",
-    prompt: "I need a hair consultation",
-  },
-];
-
-const CHAT_HISTORY = [
-  {
-    id: "h1",
-    title: "Wellness Coach",
-    sub: "Hair & scalp care tips for today",
-    group: "Today",
-  },
-  {
-    id: "h2",
-    title: "Explore Services",
-    sub: "Prices, duration & service details",
-    group: "Today",
-  },
-  {
-    id: "h3",
-    title: "Salon Products",
-    sub: "Hair care, beard care & styling",
-    group: "Today",
-  },
-  {
-    id: "h4",
-    title: "Offers & Memberships",
-    sub: "Current deals, packages & loyalty",
-    group: "Today",
-  },
-  {
-    id: "h5",
-    title: "My Appointments",
-    sub: "View, reschedule or cancel",
-    group: "Yesterday",
-  },
-  {
-    id: "h6",
-    title: "Order Tracker",
-    sub: "Your product order is on the way 🚚",
-    group: "Yesterday",
-  },
-  {
-    id: "h7",
-    title: "Hair Consultation",
-    sub: "Personalized style & care advice",
-    group: "Yesterday",
-  },
-];
-
-function TypingIndicator() {
-  return (
-    <div className="flex gap-1.5 px-4 py-3">
-      {[0, 1, 2].map((i) => (
-        <span
-          key={i}
-          className="typing-dot w-2 h-2 rounded-full bg-pink-400"
-          style={{ animationDelay: `${i * 0.16}s` }}
-        />
-      ))}
-    </div>
-  );
-}
-
-function MessageBubble({ msg }) {
-  const isUser = msg.role === "user";
-  return (
-    <div
-      className={clsx("flex mb-4", isUser ? "justify-end" : "justify-start")}
-    >
-      {!isUser && (
-        <div className="w-7 h-7 rounded-full bg-pink-700 flex items-center justify-center mr-2.5 mt-0.5 shrink-0">
-          <Sparkles className="w-3.5 h-3.5 text-white" />
-        </div>
-      )}
-      <div
-        className={clsx(
-          "max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed",
-          isUser
-            ? "bg-pink-700 text-white rounded-tr-sm"
-            : "bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-tl-sm",
-        )}
-      >
-        {/* Simple markdown: bold */}
-        <span
-          dangerouslySetInnerHTML={{
-            __html: msg.content
-              .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-              .replace(/\n/g, "<br/>"),
-          }}
-        />
-      </div>
-    </div>
-  );
-}
+import { LogoIcon, ProfilePicture } from "../../assets";
+import { QUICK_TOPICS, CHAT_HISTORY } from "./chatConstants";
+import TypingIndicator from "./TypingIndicator";
+import MessageBubble from "./MessageBubble";
 
 export default function AIChatWidget() {
   const { state, dispatch } = useBooking();
@@ -201,7 +75,6 @@ export default function AIChatWidget() {
 
   if (!state.chatOpen) return null;
 
-  // Group history
   const todayItems = CHAT_HISTORY.filter((h) => h.group === "Today");
   const yesterdayItems = CHAT_HISTORY.filter((h) => h.group === "Yesterday");
 
@@ -224,6 +97,7 @@ export default function AIChatWidget() {
             />
           </div>
         </div>
+
         <div className="p-4 border-b border-zinc-100 dark:border-zinc-800">
           <button
             onClick={startNewChat}
@@ -279,39 +153,37 @@ export default function AIChatWidget() {
       <div className="flex-1 flex flex-col bg-white dark:bg-zinc-950">
         {/* Header */}
         <div className="flex items-center gap-3 px-4 py-3.5 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900">
-          <div>
-            <button
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="btn-ghost p-1.5"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 16 16">
-                <rect
-                  x="1"
-                  y="3"
-                  width="14"
-                  height="1.5"
-                  rx=".75"
-                  fill="currentColor"
-                />
-                <rect
-                  x="1"
-                  y="7"
-                  width="14"
-                  height="1.5"
-                  rx=".75"
-                  fill="currentColor"
-                />
-                <rect
-                  x="1"
-                  y="11"
-                  width="14"
-                  height="1.5"
-                  rx=".75"
-                  fill="currentColor"
-                />
-              </svg>
-            </button>
-          </div>
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="btn-ghost p-1.5"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 16 16">
+              <rect
+                x="1"
+                y="3"
+                width="14"
+                height="1.5"
+                rx=".75"
+                fill="currentColor"
+              />
+              <rect
+                x="1"
+                y="7"
+                width="14"
+                height="1.5"
+                rx=".75"
+                fill="currentColor"
+              />
+              <rect
+                x="1"
+                y="11"
+                width="14"
+                height="1.5"
+                rx=".75"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
 
           <div className="flex-1" />
 
@@ -320,7 +192,7 @@ export default function AIChatWidget() {
           </button>
           <div className="w-7 h-7 rounded-full overflow-hidden">
             <img
-              src= {ProfilePicture}
+              src={ProfilePicture}
               alt="User"
               className="w-full h-full object-cover"
             />
@@ -340,8 +212,6 @@ export default function AIChatWidget() {
               <h2 className="font-inter text-2xl font-bold text-zinc-900 dark:text-white mb-8">
                 Hey! How can I assist you today?
               </h2>
-
-              {/* Quick topics */}
               <div className="grid grid-cols-3 gap-3 w-full max-w-lg">
                 {QUICK_TOPICS.map(({ icon: Icon, label, sub, prompt }) => (
                   <button
