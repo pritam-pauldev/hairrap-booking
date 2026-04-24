@@ -22,7 +22,7 @@ export default function ServicesPagination({ page, totalPages, onPageChange }) {
           className={clsx(
             "w-8 h-8 rounded-lg text-xs font-medium transition-colors",
             page === i + 1
-              ? "bg-pink-700 text-white shadow-lg"
+              ? "bg-[#B56584] text-white shadow-lg"
               : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800",
           )}
         >

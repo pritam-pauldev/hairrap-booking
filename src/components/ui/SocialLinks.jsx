@@ -17,7 +17,7 @@ const SOCIAL_LINKS = [
   {
     id: "instagram",
     label: "Instagram",
-    href: "https://www.instagram.com/hairrapbyyoyo",
+    href: "https://www.instagram.com/hair_rap_by_yoyo/",
     bgColor: "bg-gradient-to-br from-pink-500 via-red-500 to-yellow-400",
     icon: (
       <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 16 16">

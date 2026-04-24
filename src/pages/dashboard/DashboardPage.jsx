@@ -1,3 +1,4 @@
+// import { useState, useEffect } from "react";
 import { useState } from "react";
 import clsx from "clsx";
 import { useBooking } from "../../context/BookingContext";
@@ -6,6 +7,7 @@ import DashboardSidebar from "./DashboardSidebar";
 import DashboardBookingCard from "./DashboardBookingCard";
 import CancelModal from "./CancelModal";
 import { TABS, getCounts } from "./dashboardConfig";
+// import api from "../../services/api";
 
 export default function DashboardPage() {
   const { state, dispatch } = useBooking();
@@ -14,6 +16,20 @@ export default function DashboardPage() {
   const [confirmCancel, setConfirmCancel] = useState(null);
   const [page, setPage] = useState(1);
   const PAGE_SIZE = 5;
+
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   api
+  //     .get("/bookings") // GET /bookings
+  //     .then((res) => {
+  //       dispatch({ type: "SET_BOOKINGS", payload: res.data }); // needs reducer update — see note below
+  //     })
+  //     .catch((err) => setError(err.message))
+  //     .finally(() => setLoading(false));
+  // }, []);
 
   const filtered = state.bookings.filter((b) =>
     activeTab === "All" ? true : b.status === activeTab.toLowerCase(),

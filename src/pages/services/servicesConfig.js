@@ -1,3 +1,4 @@
+// import api from "../../services/api";
 export const SORT_OPTIONS = [
   "Price Low to High",
   "Price High to Low",
@@ -13,6 +14,11 @@ export const defaultFilters = {
   maxPrice: 999,
   minRating: 0,
 };
+
+// export async function fetchServices() {
+//   const response = await api.get("/services");
+//   return response.data;
+// }
 
 export function applyFilters(services, filters) {
   return services.filter((s) => {

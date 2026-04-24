@@ -154,7 +154,7 @@ export const SERVICES = [
     originalPrice: 699,
     duration: 90,
     image:
-      "https://images.unsplash.com/photo-1633681122188-2c43a18b3c34?w=400&h=280&fit=crop",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=400&h=280&fit=crop",
     description: "Luxury hair coloring in an upscale studio environment.",
     stylist: "Dominique Bernard",
     stylistAvatar: "https://i.pravatar.cc/48?img=48",

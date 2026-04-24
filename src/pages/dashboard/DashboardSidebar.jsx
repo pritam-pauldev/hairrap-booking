@@ -11,7 +11,7 @@ export default function DashboardSidebar({ activeNav, setActiveNav }) {
     <aside className="hidden md:block w-64 shrink-0">
       <div className="bg-[#F4F5F5] rounded-md border-[1px] border-[#EBECED] p-4 sticky top-24 dark:bg-zinc-900 dark:border-zinc-800">
         {/* Profile */}
-        <div className="flex flex-col items-center py-4 border-b border-zinc-100 dark:border-zinc-800 mb-4">
+        <div className="flex flex-col bg-white rounded-md items-center py-4 dark:border-zinc-800 mb-4">
           <div className="w-16 h-16 rounded-full overflow-hidden ring-4 ring-[#F4F5F5] mb-3">
             <img
               src={ProfilePicture}

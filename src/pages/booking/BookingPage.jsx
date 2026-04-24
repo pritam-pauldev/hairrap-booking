@@ -20,6 +20,7 @@ import {
   getSelectFields,
 } from "./bookingConfig";
 import { validateBookingForm } from "./bookingValidation";
+// import api from "../../services/api";
 
 export default function BookingPage() {
   const { id } = useParams();

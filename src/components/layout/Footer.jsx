@@ -129,7 +129,7 @@ export default function Footer() {
                   placeholder="Enter Email Address"
                   className="w-full py-2.5 px-3 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-sm text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
-                <button className="w-full py-2.5 bg-pink-700 hover:bg-pink-800 text-white text-sm font-medium rounded transition-colors">
+                <button className="w-full py-2.5 bg-[#C9507F] hover:bg-[#B56584] text-white text-sm font-medium rounded transition-colors">
                   Subscribe
                 </button>
               </div>
@@ -184,7 +184,6 @@ export default function Footer() {
 
         {/* Social icons + language/currency row */}
         <SocialLinks />
-
 
         {/* Bottom bar */}
         <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">

@@ -39,8 +39,8 @@ export default function Navbar() {
                   clsx(
                     "flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-medium transition-colors duration-150",
                     isActive
-                      ? "bg-zinc-100 hover:text-zinc-900 dark:bg-pink-950 dark:text-pink-400"
-                      : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-50 dark:hover:bg-zinc-800",
+                      ? "bg-zinc-100  dark:bg-[#342128] dark:text-white"
+                      : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 hover:bg-zinc-100 dark:hover:text-white  dark:hover:bg-zinc-800",
                   )
                 }
               >
@@ -53,10 +53,10 @@ export default function Navbar() {
           </nav>
 
           {/* Right actions */}
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-3">
             <button
               onClick={() => dispatch({ type: "TOGGLE_DARK" })}
-              className="btn-ghost p-2"
+              className="btn-ghost bg-[#F4F5F5] dark:bg-[#342128] p-2"
               aria-label="Toggle dark mode"
             >
               {state.darkMode ? (
@@ -67,7 +67,7 @@ export default function Navbar() {
             </button>
 
             <button
-              className="btn-ghost p-2 relative"
+              className="btn-ghost bg-[#F4F5F5] dark:bg-zinc-800 p-2 relative"
               aria-label="Notifications"
             >
               <Bell className="w-[18px] h-[18px]" />
@@ -76,7 +76,7 @@ export default function Navbar() {
 
             <button
               onClick={() => dispatch({ type: "SET_CHAT_OPEN", payload: true })}
-              className="btn-ghost p-2"
+              className="btn-ghost dark:bg-zinc-800 bg-[#F4F5F5] p-2"
               aria-label="Open AI assistant"
             >
               <MessageCircle className="w-[18px] h-[18px]" />
