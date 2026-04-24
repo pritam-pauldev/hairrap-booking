@@ -5,6 +5,7 @@ import Footer from "./components/layout/Footer";
 import ServicesPage from "./pages/ServicesPage";
 import BookingPage from "./pages/BookingPage";
 import DashboardPage from "./pages/DashboardPage";
+import AIChatWidget from "./components/chat/AIChatWidget";
 
 function Layout({ children }) {
   return (
@@ -12,6 +13,7 @@ function Layout({ children }) {
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
+      <AIChatWidget />
     </div>
   );
 }
