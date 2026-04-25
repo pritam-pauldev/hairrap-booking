@@ -7,13 +7,7 @@ const FOOTER_COLS = [
   },
   {
     title: "Support",
-    links: [
-      "Getting started",
-      "Help center",
-      "Server status",
-      "Report a bug",
-      "Chat support",
-    ],
+    links: ["Getting started", "Help center", "Server status", "Report a bug", "Chat support"],
   },
   {
     title: "For Provider",
@@ -21,13 +15,7 @@ const FOOTER_COLS = [
   },
   {
     title: "Support",
-    links: [
-      "Getting started",
-      "Help center",
-      "Other Products",
-      "Report a bug",
-      "Chat support",
-    ],
+    links: ["Getting started", "Help center", "Other Products", "Report a bug", "Chat support"],
   },
 ];
 
@@ -92,13 +80,11 @@ export default function Footer() {
   return (
     <footer className="bg-zinc-100 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Main columns grid */}
-        <div className="flex flex-wrap gap-0">
+        {/* Main grid: link columns + newsletter */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[repeat(4,_minmax(0,_1fr))_398px] gap-8 lg:gap-6">
+          {/* Link columns */}
           {FOOTER_COLS.map((col, i) => (
-            <div
-              key={`${col.title}-${i}`}
-              className="w-[45%] md:w-[30%] lg:w-[18%]"
-            >
+            <div key={`${col.title}-${i}`}>
               <h4 className="font-semibold text-sm text-zinc-900 dark:text-white mb-4">
                 {col.title}
               </h4>
@@ -117,17 +103,17 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Newsletter column */}
-          <div className=" w-[328px]">
-            <div className="p-[20px] bg-[#FBFBFB] dark:bg-zinc-800 rounded-lg">
-              <h4 className="font-bold text-md text-[#242B3A] dark:text-white mb-4">
+          {/* Newsletter + app badges — spans full width on mobile, 1 col on lg */}
+          <div className="col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-1 lg:flex lg:flex-col lg:gap-4">
+            <div className="p-5 lg:p-[20px] bg-[#FBFBFB] dark:bg-zinc-800 rounded-lg lg:rounded-[10px] lg:h-[182px] lg:flex lg:flex-col">
+              <h4 className="font-bold text-sm text-[#242B3A] dark:text-white mb-4">
                 SignUp For Subscription
               </h4>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 lg:gap-4">
                 <input
                   type="email"
                   placeholder="Enter Email Address"
-                  className="w-full py-2.5 px-3 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-sm text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-pink-400"
+                  className="w-full py-2.5 px-3 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-sm text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
                 <button className="w-full py-2.5 bg-[#C9507F] hover:bg-[#B56584] text-white text-sm font-medium rounded transition-colors">
                   Subscribe
@@ -136,10 +122,10 @@ export default function Footer() {
             </div>
 
             {/* App store badges */}
-            <div className="flex gap-2 mt-5 flex-wrap">
+            <div className="flex gap-2 mt-5 lg:mt-0 flex-wrap">
               <a
                 href="#"
-                className="flex items-center gap-1.5 bg-black text-white rounded-lg px-3 py-1.5 hover:bg-zinc-800 transition-colors"
+                className="flex items-center gap-1.5 bg-black text-white rounded-lg px-3 py-1.5 hover:bg-zinc-800 transition-colors flex-1 min-w-[120px]"
               >
                 <svg
                   className="w-5 h-5 shrink-0"
@@ -160,7 +146,7 @@ export default function Footer() {
 
               <a
                 href="#"
-                className="flex items-center gap-1.5 bg-black text-white rounded-lg px-3 py-1.5 hover:bg-zinc-800 transition-colors"
+                className="flex items-center gap-1.5 bg-black text-white rounded-lg px-3 py-1.5 hover:bg-zinc-800 transition-colors flex-1 min-w-[120px]"
               >
                 <svg
                   className="w-5 h-5 shrink-0"
@@ -182,19 +168,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Social icons + language/currency row */}
+        {/* Social icons row */}
         <SocialLinks />
 
         {/* Bottom bar */}
-        <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <p className="text-xs text-[#242B3A] dark:text-zinc-500">
-              Copyright © 2025 All Rights Reserved{" "}
-              <span className="font-medium text-[#242B3A] dark:text-zinc-400">
-                HAIR RAP BY YOYO
-              </span>
-            </p>
-          </div>
+        <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-[#242B3A] dark:text-zinc-500 text-center sm:text-left">
+            Copyright © 2025 All Rights Reserved{" "}
+            <span className="font-medium text-[#242B3A] dark:text-zinc-400">
+              HAIR RAP BY YOYO
+            </span>
+          </p>
           <div className="flex items-center gap-4 text-xs text-zinc-500 dark:text-zinc-500">
             <a
               href="#"

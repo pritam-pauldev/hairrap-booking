@@ -10,7 +10,7 @@ function SidebarContent({ activeNav, setActiveNav, onClose }) {
   return (
     <div className="bg-[#F4F5F5] rounded-md border-[1px] border-[#EBECED] p-4 dark:bg-zinc-900 dark:border-zinc-800 h-full">
       {/* Profile */}
-      <div className="flex flex-col bg-white rounded-md items-center py-4 dark:border-zinc-800 mb-4">
+      <div className="flex flex-col bg-white dark:bg-zinc-800 rounded-md items-center py-4 dark:border-zinc-800 mb-4">
         <div className="w-16 h-16 rounded-full overflow-hidden ring-4 ring-[#F4F5F5] mb-3">
           <img
             src={ProfilePicture}
