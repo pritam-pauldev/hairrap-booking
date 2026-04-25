@@ -1,6 +1,7 @@
 // import { useState, useEffect } from "react";
 import { useState } from "react";
 import clsx from "clsx";
+import { Menu } from "lucide-react";
 import { useBooking } from "../../context/BookingContext";
 import { DashboardHeroBanner } from "../../assets";
 import DashboardSidebar from "./DashboardSidebar";
@@ -15,6 +16,7 @@ export default function DashboardPage() {
   const [activeNav, setActiveNav] = useState("bookings");
   const [confirmCancel, setConfirmCancel] = useState(null);
   const [page, setPage] = useState(1);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const PAGE_SIZE = 5;
 
   // const [loading, setLoading] = useState(true);
@@ -62,8 +64,24 @@ export default function DashboardPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Mobile menu toggle */}
+        <div className="md:hidden mb-4">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+          >
+            <Menu className="w-4 h-4" />
+            My Account
+          </button>
+        </div>
+
         <div className="flex gap-6">
-          <DashboardSidebar activeNav={activeNav} setActiveNav={setActiveNav} />
+          <DashboardSidebar
+            activeNav={activeNav}
+            setActiveNav={setActiveNav}
+            mobileOpen={sidebarOpen}
+            onMobileClose={() => setSidebarOpen(false)}
+          />
 
           {/* Main content */}
           <div className="flex-1 min-w-0 bg-[#F4F5F5] rounded-md border-[1px] border-[#EBECED] p-10 dark:bg-zinc-900 dark:border-zinc-800">
