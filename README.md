@@ -7,6 +7,7 @@ A modern, AI-powered salon appointment booking application built with React and 
 ## 📸 App Preview
 
 > _Screenshots or a short demo video can be added here._
+https://drive.google.com/drive/folders/1Z4shXqytniFYPJwouI2GK7mRNYzfp-GO
 
 ---
 
